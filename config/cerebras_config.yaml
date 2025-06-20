@@ -1,0 +1,44 @@
+# Cerebras Configuration for Agent Zero
+# This file configures the Cerebras AI integration
+
+cerebras:
+  api_key: "${CEREBRAS_API_KEY}"
+  model: "llama3.1-8b"
+  max_tokens: 4096
+  temperature: 0.7
+  stream: true
+  base_url: "https://api.cerebras.ai/v1"
+  
+agent:
+  max_iterations: 10
+  memory_enabled: true
+  tools_enabled: true
+  conversation_memory_limit: 10
+  
+# Available Cerebras models
+supported_models:
+  - "llama3.1-8b"     # Fast, efficient for most tasks
+  - "llama3.1-70b"    # Advanced reasoning and complex tasks
+  - "mixtral-8x7b"    # Mixture of experts model
+  - "llama-4-scout-17b-16e-instruct"  # Current default model
+
+# Security settings
+security:
+  sandbox: true
+  allowed_commands:
+    - "python"
+    - "pip"
+    - "git"
+    - "npm"
+    - "node"
+    - "curl"
+    - "ls"
+    - "cat"
+    - "mkdir"
+    - "cd"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "cerebras_agent.log"
+  enable_debug: false 

@@ -1,0 +1,60 @@
+# Agent Zero Configuration with Cerebras Integration
+
+# API Configuration
+apis:
+  cerebras:
+    provider: "cerebras_provider.CerebrasProvider"
+    model: "llama-4-scout-17b-16e-instruct"
+    max_tokens: 8192
+    temperature: 0.2
+    top_p: 1.0
+
+# Agent Configuration
+agents:
+  main:
+    name: "Coding Assistant"
+    description: "AI-powered coding assistant using Cerebras inference"
+    api: "cerebras"
+    system_message: |
+      You are an expert coding assistant. You help users with:
+      - Writing clean, efficient code
+      - Debugging and troubleshooting
+      - Code reviews and optimization
+      - Architecture and design patterns
+      - Best practices and documentation
+      
+      Always provide clear explanations and practical examples.
+    
+    tools:
+      - code_execution
+      - file_operations
+      - web_search
+      - terminal_commands
+
+# UI Configuration
+ui:
+  enabled: true
+  host: "localhost"
+  port: 7860
+  title: "Agent Zero - Coding Assistant"
+  theme: "dark"
+  
+# Security
+security:
+  sandbox: true
+  allowed_commands:
+    - "python"
+    - "pip"
+    - "git"
+    - "npm"
+    - "node"
+    - "curl"
+    - "ls"
+    - "cat"
+    - "mkdir"
+    - "cd"
+
+# Logging
+logging:
+  level: "INFO"
+  file: "agent_zero.log"
